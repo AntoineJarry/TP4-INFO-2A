@@ -8,12 +8,6 @@ from services.pokemon_service import PokemonService
 
 
 class PokemonListView(AbstractView):
-    def display_info():
-        pokemon_service = PokemonService()
-        pokemon_service.get_pokemon_from_webservice(limit=30)
-
-
-class PokemonListView(AbstractView):
     def __init__(self):
         pokemon_service = PokemonService()
         pokemon_list = pokemon_service.get_pokemon_from_webservice(limit=30)
@@ -22,7 +16,7 @@ class PokemonListView(AbstractView):
             {
                 "type": "list",
                 "message": "Select Pokemon",
-                "choices": pokemon_list,
+                "choices": pokemon_list.name,
             },
         ]
 
